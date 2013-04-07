@@ -3,30 +3,35 @@
 import random
 import math
 import string
+import corpus.
 
 #Open a file
 
-def word_list(file_of_words):
-	corpus_words = []
-	fileObject = open((str(file_of_words) + ".txt"), 'r', 0)
-	for i in fileObject.read():
-    	if (i != " "):
-        	corpus_words.append(i.lower)
-	return corpus_words
 
+
+def word_list(file_of_words):
+	corpus_words =""
+	fileObject = open(file_of_words), 'r', 0)
+	for i in fileObject.read():
+        	corpus_words.append(i.lower)
+	return corpus.clearHTML(corpus_words)
 
 def freq_analysis(file_of_words):
+	punctuation = '.,?!()'
 	total = 0
 	numberOfLetters = {}
 	freq_of_letters = {}
+	for i in punctuation
+		numberOfLetters[i] = 0
 	for i in string.ascii_lowercase:
     	numberOfLetters[i] = 0
 	for i in word_list(file_of_words):
     	numberOfLetters[i] += 1
-	for i in string.ascii_lowercase:
+	for i in string.ascii_lowercase + punctuation:
     	total += numberOfLetters[i]
 	for i in string.ascii_lowercase:
     	freq_of_letters[i] = numberOfLetters[i]/total
+    return freq_of_letters
 
 
 #Open a file
