@@ -4,9 +4,9 @@ import sys
 
 from sys import argv
 
-in_string, in_key = argv
+script, in_string, in_key = argv
 
 def decrypt(encrypted, key):
-  return endcrypted
+  return encrypted
 
 print decrypt(in_string, in_key)
