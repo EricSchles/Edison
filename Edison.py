@@ -35,13 +35,12 @@ def freq_analysis(file_of_words):
 
 
 #Open a file
-
-fileObject = open("inputFile.txt", 'r', 0)
-
-listOfChars = []
-for i in fileObject.read():
-    listOfChars.append(i)
-print listOfChars
+def opening(File):
+    fileObject = open("File", 'r', 0)
+    listOfChars = []
+    for i in fileObject.read():
+        listOfChars.append(i)
+    print listOfChars
 
 
 # num_file_char = len(listOfChars) * 1.5 * random.randint(200,500)
@@ -52,22 +51,28 @@ print listOfChars
 #     listOfChars.append(y)
 
 
-offset = []
+
 
 
 #this may need to change
 
-NewList = []
-dict_of_characters = {}
-ascii_chars = string.ascii_lowercase + '.,?!()'
-x = 0
-for i in ascii_chars:
-    dict_of_characters[x] = i
-    x += 1
+def generateOffSet():
+    offset = []
+    NewList = []
+    dict_of_characters = {}
+    ascii_chars = string.ascii_lowercase + '.,?!()'
+    x = 0
+    for i in ascii_chars:
+        dict_of_characters[x] = i
+        x += 1
 
-for ind,item in enumerate(listOfChars):
-    NewList.append(item)
-    x = random.sample(xrange(140), random.randrange(2, 70, 1) )
-    offset.append(len(x))
+def Randomize():
+    for ind,item in enumerate(listOfChars):
+        NewList.append(item)
+        x = random.sample(xrange(140), random.randrange(2, 70, 1) )
+        offset.append(len(x))
     for i in x:
         NewList.append(dict_of_characters[random.randint(0, 25)])
+
+def printToFile():
+    file
