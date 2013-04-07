@@ -14,3 +14,14 @@ The main strength of this algorithm is its ability to be used in conjunction wit
 
 How to use:
 ------------------------------------------------------------------------------------------------------------------------
+
+To Encrypt:
+
+
+python EdisonBigScaryWhile_and_O.py AnyPlainText.txt 
+
+To Decrypt:
+
+python Decrypt.py EncryptedText.txt
+
+This currently works with any ascii character set file.  
