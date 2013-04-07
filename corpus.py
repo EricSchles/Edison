@@ -35,6 +35,7 @@ def clearHTML(content):
   lastSpace = False
   lastSlash = False
   for s in lines:
+    #print s
     if s == '<':
       curInTag = True
     elif s == '>':
@@ -64,10 +65,10 @@ def clearHTML(content):
 				#Dashes currently ommited, change based on non-sleep-deprived choice
 				#elif s == '-':
 				#	end += '-'
-        else:
-          lastSlash = False
-    return end
+      else:
+        lastSlash = False
+  return end
 	
 #Put it all together
-  def callMe(url):
-    return clearHTML(getWords(makeCall(encode(url))))
+def callMe(url):
+  return clearHTML(getWords(makeCall(encode(url))))
