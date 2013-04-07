@@ -3,7 +3,7 @@
 import random
 import math
 import string
-import corpus.
+import corpus
 
 #Open a file
 
@@ -11,25 +11,23 @@ import corpus.
 
 def word_list(file_of_words):
 	corpus_words =""
-	fileObject = open(file_of_words), 'r', 0)
+	fileObject = open((file_of_words), 'r', 0)
 	for i in fileObject.read():
         	corpus_words.append(i.lower)
 	return corpus.clearHTML(corpus_words)
 
 def freq_analysis(file_of_words):
-	punctuation = '.,?!()'
+	ascii_chars = string.ascii_lowercase + '.,?!()'
 	total = 0
 	numberOfLetters = {}
 	freq_of_letters = {}
-	for i in punctuation
+	for i in ascii_chars:
 		numberOfLetters[i] = 0
-	for i in string.ascii_lowercase:
-    	numberOfLetters[i] = 0
 	for i in word_list(file_of_words):
     	numberOfLetters[i] += 1
-	for i in string.ascii_lowercase + punctuation:
+	for i in ascii_chars:
     	total += numberOfLetters[i]
-	for i in string.ascii_lowercase:
+	for i in ascii_chars:
     	freq_of_letters[i] = numberOfLetters[i]/total
     return freq_of_letters
 
