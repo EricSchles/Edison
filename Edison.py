@@ -1,12 +1,10 @@
 #!/usr/bin/python
 
+import sys
 import random
 import math
 import string
 import corpus
-
-#Open a file
-
 
 
 def word_list(file_of_words):
@@ -32,9 +30,11 @@ def freq_analysis(file_of_words):
         freq_of_letters[i] = (numberOfLetters[i]/total)
     return freq_of_letters
 
+
+
 #Open a file
 def opening(File):
-    fileObject = open("File", 'r', 0)
+    fileObject = open(File, 'r', 0)
     listOfChars = []
     for i in fileObject.read():
         listOfChars.append(i)
@@ -42,19 +42,11 @@ def opening(File):
 
 
 # num_file_char = len(listOfChars) * 1.5 * random.randint(200,500)
-# math.floor(num_file_char)
-# num_file_char = int(num_file_char)
-# print num_file_char
-# for y in xrange(num_file_char):
-#     listOfChars.append(y)
 
 
 
-
-
-#this may need to change
-
-def generateOffSet():
+def generateOffSet( ):
+    """returns NewList and Offset, respectively"""
     offset = []
     NewList = []
     dict_of_characters = {}
@@ -63,14 +55,23 @@ def generateOffSet():
     for i in ascii_chars:
         dict_of_characters[x] = i
         x += 1
-
-def Randomize():
     for ind,item in enumerate(listOfChars):
         NewList.append(item)
         x = random.sample(xrange(140), random.randrange(2, 70, 1) )
         offset.append(len(x))
-    for i in x:
-        NewList.append(dict_of_characters[random.randint(0, 25)])
+        for i in x:
+            NewList.append(dict_of_characters[random.randint(0, 25)])
+        return NewList,offset
 
-def printToFile():
-    file
+
+def printToFile(file_of_words, NewList,offset):
+    fileObject = open((file_of_words), 'w', 0)
+    fileObject.write(NewList+"\n")
+    fileObject.write(offset)
+
+opening( sys.argv[1] ) #reads first file
+#freq_analysis( word_list(sys.argv[1]) )
+NEW,off = generateOffSet() #new and offset
+printToFile(sys.argv[2],NEW,off)
+
+
