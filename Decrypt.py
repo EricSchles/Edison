@@ -7,14 +7,6 @@ from sys import argv
 
 script, in_put, in_key = argv
 
-#def decrypt(encrypted, key):
-#	for row in spamreader:
-#		print encrypted[:row]
-#		print ''.join(row)
-#	print encrypted[:1]
-#	print key
-#	return "whatever"
-
 encrypted = open(in_put).read()
 out = ''
 i = 0
@@ -26,4 +18,3 @@ with open(in_key, 'rb') as csvfile:
 			i += int(num)
 
 print out
-#print decrypt(encrypted, key)
