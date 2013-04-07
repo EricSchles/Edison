@@ -4,9 +4,16 @@ import random
 def generateGarbage(freqs):
   sum = 0.0
   d = random.random()
+  #print d
   #for c in 'abcdefghijklmnopqrstuvwxyz,.!?()':
+  c = ' '
   for c in freqs.keys():
     #print(c)
+    #print freqs[c]
     sum += freqs[c]
+    #print sum
     if (sum >= d):
-    return c
+      #print c
+      return c
+  #print 'Got through'
+  return c
