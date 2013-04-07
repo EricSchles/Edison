@@ -16,23 +16,21 @@ def word_list(file_of_words):
             corpus_words += i
     return corpus.clearHTML(corpus_words)
 
-print word_list('inputFile.txt')
 
 def freq_analysis(file_of_words):
     ascii_chars = string.ascii_lowercase + '.,?!()'
-    total = 0
+    total = 0.0
     numberOfLetters = {}
     freq_of_letters = {}
     for i in ascii_chars:
         numberOfLetters[i] = 0
-    for i in word_list(file_of_words):
+    for i in file_of_words:
         numberOfLetters[i] += 1
     for i in ascii_chars:
         total += numberOfLetters[i]
     for i in ascii_chars:
-        freq_of_letters[i] = numberOfLetters[i]/total
+        freq_of_letters[i] = (numberOfLetters[i]/total)
     return freq_of_letters
-
 
 #Open a file
 def opening(File):
