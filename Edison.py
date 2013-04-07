@@ -24,12 +24,12 @@ def freq_analysis(file_of_words):
 	for i in ascii_chars:
 		numberOfLetters[i] = 0
 	for i in word_list(file_of_words):
-    	numberOfLetters[i] += 1
+		numberOfLetters[i] += 1
 	for i in ascii_chars:
-    	total += numberOfLetters[i]
-	for i in ascii_chars:
-    	freq_of_letters[i] = numberOfLetters[i]/total
-    return freq_of_letters
+		total += numberOfLetters[i]
+       	for i in ascii_chars:
+		freq_of_letters[i] = numberOfLetters[i]/total
+	return freq_of_letters
 
 
 #Open a file
