@@ -60,7 +60,6 @@ def post_padding_fix(inputlist, corpus_freq, input_freq, offset, epsilon):
     random_key = random.randrange(0, len(fix_chars_below))
     random_key = index_of_below[random_key]
     #replacing the aboves with belows
-    while(fix_chars_below)
     while (fix_chars_below[random_key] < (epsilon * length))
         which_slice = random.randrange(0, len(offset))
         letter_in_slice = random.randrange(slices_offset[which_slice][1], slices_offset[which_slice][2])
