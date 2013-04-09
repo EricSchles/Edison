@@ -70,8 +70,17 @@ def printToFile(file_of_words, NewList,offset):
     fileObject.write(offset)
 
 opening( sys.argv[1] ) #reads first file
-#freq_analysis( word_list(sys.argv[1]) )
+freq_analysis( word_list(sys.argv[1]) )
 NEW,off = generateOffSet() #new and offset
 printToFile(sys.argv[2],NEW,off)
 
 
+"""
+Todo:
+
+inputting false positive letter choices
+to make it unclear what is actually plaintext 
+and ciphertext
+
+
+"""
