@@ -31,43 +31,13 @@ def freq_analysis(file_of_words):
         freq_of_letters[i] = (numberOfLetters[i]/total)
     return freq_of_letters
 
-def final_freq(freq_of_corpus, freq_of_input_text):
+
+def final_freq(freq_of_corpus, freq_of_input_text, PaddedEmptyList, inputLIST):
     '''takes freq of corpus and input text, outputs freq number to use in padding'''
     ascii_chars = string.ascii_lowercase + '.,?!()'
     for i in ascii_chars:
-        freq_of_corpus[i] -= freq_of_input_text[i]
+        freq_of_corpus[i] = freq_of_corpus[i] * len(PaddedEmptyList) - freq_of_input_text[i] * len(inputList)
     return freq_of_corpus[i]
-
-
-#Post fix corpus freq
-def post_padding_fix(corpus_freq, input_freq, offset, epsilon):
-    #get list of chars not meeting freq
-    ascii_chars = string.ascii_lowercase + '.,?!()'
-    fix_chars_above = []
-    fix_chars_below = []
-    for i in ascii_chars:
-        diff = input_freq[i] - corpus_freq[i]
-        if (diff > epsilon):
-            fix_chars_above.append(i)
-        elif (diff < -epsilon):
-            fix_chars_below.append(i)
-    #organize a list of lists for mutable parts of padding
-    total = 2
-    slices_offset = [[]*2]*len(offset)
-    for ind, item in enumerate(offset):
-        slices_offset[ind][1] = total
-        slices_offset[ind][2] = total + item
-        total += 1
-    #add those chars to the padding replacing above freq chars
-    which_slice = random.randrange(0, len(offset))
-    part_of_slice = random.randrange(slices_offset[which_slice][1], slices_offset[which_slice][2])
-
-
-
-
-
-
-
 
 #Open a file
 def opening(File):
@@ -82,23 +52,34 @@ def opening(File):
 
 
 
-def generateOffSet( ):
-    """returns NewList and Offset, respectively"""
+def generateOffSet(inputStr, corpusURL):
+    inputStr = corpus.clearHTML(inputStr)
+    #print(inputStr)
     offset = []
     NewList = []
     dict_of_characters = {}
     ascii_chars = string.ascii_lowercase + '.,?!()'
     x = 0
+    freq = freq_analysis(corpus.callMe(corpusURL))
+    #print(freq)
     for i in ascii_chars:
         dict_of_characters[x] = i
         x += 1
-    for ind,item in enumerate(listOfChars):
+    #for ind,item in enumerate(listOfChars):
+    #print inputStr
+    for ind,item in enumerate(inputStr):
+        #print item
         NewList.append(item)
         x = random.sample(xrange(140), random.randrange(2, 70, 1) )
+        #print x
         offset.append(len(x))
         for i in x:
-            NewList.append(dict_of_characters[random.randint(0, 25)])
-        return NewList,offset
+            #NewList.append(dict_of_characters[random.randint(0, 25)])
+            #NewList.append(garbageFill.generateGarbage(
+          c = garbageFill.generateGarbage(freq);
+          #print c
+          NewList.append(c)
+    return NewList,offset
 
 
 def printToFile(file_of_words, NewList,offset):
